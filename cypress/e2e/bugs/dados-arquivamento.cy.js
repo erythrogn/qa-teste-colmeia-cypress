@@ -1,7 +1,7 @@
 ﻿import database from '../../support/pages/DatabasePage';
 
 describe('Bugs - Ciclo de Vida do Dado e UX', () => {
-    const nomeBanco = \ug_test_\\;
+    const nomeBanco = 'bug_test_' + Date.now();
 
     beforeEach(() => { database.acessar(); });
 
@@ -21,7 +21,10 @@ describe('Bugs - Ciclo de Vida do Dado e UX', () => {
     it('MELHORIA-001: Deve formatar data de criacao no padrao PT-BR (Falha Esperada)', () => {
         database.criarBanco(nomeBanco);
         const dataHoje = new Date();
-        const dataPTBR = \\/\/\\;
+        const dia = String(dataHoje.getDate()).padStart(2, '0');
+        const mes = String(dataHoje.getMonth() + 1).padStart(2, '0');
+        const ano = dataHoje.getFullYear();
+        const dataPTBR = dia + '/' + mes + '/' + ano;
         
         cy.contains('tr', nomeBanco).should('contain.text', dataPTBR);
     });

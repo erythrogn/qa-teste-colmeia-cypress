@@ -10,7 +10,7 @@ describe('Feature - Gerenciamento de Bancos de Dados', () => {
     });
 
     it('Deve criar um novo banco de dados com sucesso', () => {
-        const nomeBanco = \	este_senior_\\;
+        const nomeBanco = 'teste_senior_' + Date.now();
         database.criarBanco(nomeBanco);
         cy.contains('Adicionar novo item').should('not.exist');
         cy.contains('tr', nomeBanco).should('be.visible');
