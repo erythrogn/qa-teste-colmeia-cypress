@@ -8,9 +8,9 @@ describe('Bugs - Navegacao e Layout (Expected vs Actual)', () => {
         cy.get('[role="menu"], .dropdown-menu').should('be.visible');
     });
 
-    it('BUG-002: Deve redirecionar ao clicar nos links da Sidebar (Falha Esperada)', () => {
-        dashboard.linkBancosDeDados.click();
-        cy.url().should('include', '/bancos-de-dados');
+    it('BUG-002: Deve redirecionar ao clicar em Colmeia Forms na Sidebar (Falha Esperada)', () => {
+        dashboard.linkColmeiaForms.click();
+        cy.url().should('include', '/colmeia-forms');
     });
 
     it('BUG-005: Deve exibir conteudo principal na rota raiz /campanha (Falha Esperada)', () => {
